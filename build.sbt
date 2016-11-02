@@ -9,6 +9,7 @@ libraryDependencies ++= Seq(
   , "org.scalatest" %% "scalatest" % "2.2.6"
   , "org.eclipse.jetty" % "jetty-server" % "8.1.14.v20131031"
   , "org.eclipse.jetty" % "jetty-servlet" % "8.1.14.v20131031"
+  , "org.scalacheck" %% "scalacheck" % "1.12.6" % "test"
 )
 
 enablePlugins(JmhPlugin)
