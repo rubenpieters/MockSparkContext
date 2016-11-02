@@ -11,7 +11,7 @@ import org.openjdk.jmh.annotations._
 class LocalSparkBench {
   @Benchmark
   def MockedSparkContext(): Unit = {
-    op1(MockSparkContext)
+    op1(MockSparkContext.sc)
   }
 
   @Benchmark

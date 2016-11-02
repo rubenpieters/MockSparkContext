@@ -14,7 +14,7 @@ import scala.reflect.ClassTag
 /**
   * Created by ruben on 2/11/2016.
   */
-class MockRDD[T: ClassTag](val seq: Seq[T]) extends RDD[T](MockSparkContext, Seq()) {
+class MockRDD[T: ClassTag](val seq: Seq[T]) extends RDD[T](MockSparkContext.sc, Seq()) {
   // NOTE: max size of the mock is bounded by Int, while normal RDD's can be much larger
 
   import MockRDD._

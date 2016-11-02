@@ -9,7 +9,7 @@ import org.scalatest.{BeforeAndAfterAll, FlatSpec, Matchers}
   * Created by ruben on 2/11/2016.
   */
 class MockRDDTest extends FlatSpec with Matchers with GeneratorDrivenPropertyChecks with BeforeAndAfterAll {
-  val multSparkContext = SparkUtil.createRealMultSparkContext()
+  val multSparkContext = SparkUtil.createRealSparkContext()
 
   override protected def afterAll(): Unit = {
     multSparkContext.stop()
@@ -22,6 +22,6 @@ class MockRDDTest extends FlatSpec with Matchers with GeneratorDrivenPropertyChe
   }
 
   def checkEqualWithRealSparkContext[A](op: SparkContext => A): Unit = {
-    op(multSparkContext) shouldEqual op(MockSparkContext)
+    op(multSparkContext) shouldEqual op(MockSparkContext.sc)
   }
 }
