@@ -7,7 +7,8 @@ val sparkVersion = "1.6.2"
 libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % sparkVersion
   , "org.scalatest" %% "scalatest" % "2.2.6"
-  , "org.eclipse.jetty" % "jetty-util" % "9.3.11.v20160721"
+  , "org.eclipse.jetty" % "jetty-server" % "8.1.14.v20131031"
+  , "org.eclipse.jetty" % "jetty-servlet" % "8.1.14.v20131031"
 )
 
 enablePlugins(JmhPlugin)
