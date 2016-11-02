@@ -31,5 +31,5 @@ class LocalSparkBench {
 object SparkUtil {
   val sparkContext = createRealSparkContext()
 
-  def createRealSparkContext: () => SparkContext = () => new SparkContext("local[*]", "benchmark_shared")
+  def createRealSparkContext: () => SparkContext = () => new SparkContext("local[*]", "real_sc_bench")
 }
