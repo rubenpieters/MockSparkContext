@@ -3,13 +3,17 @@ package be.rubenpieters.mockspark
 import be.rubenpieters.util.SparkUtil
 import org.apache.spark.SparkContext
 import org.scalatest.prop.GeneratorDrivenPropertyChecks
-import org.scalatest.{FlatSpec, Matchers}
+import org.scalatest.{BeforeAndAfterAll, FlatSpec, Matchers}
 
 /**
   * Created by ruben on 2/11/2016.
   */
-class MockRDDTest extends FlatSpec with Matchers with GeneratorDrivenPropertyChecks {
+class MockRDDTest extends FlatSpec with Matchers with GeneratorDrivenPropertyChecks with BeforeAndAfterAll {
   val multSparkContext = SparkUtil.createRealMultSparkContext()
+
+  override protected def afterAll(): Unit = {
+    multSparkContext.stop()
+  }
 
   "map" should "behave the same" in {
     forAll { (seq: Seq[Int], f: Int => Int) =>

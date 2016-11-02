@@ -1,10 +1,14 @@
 package be.rubenpieters.mockspark
 
-import org.scalatest.Suite
+import org.scalatest.{BeforeAndAfterAll, Suite}
 
 /**
   * Created by ruben on 2/11/2016.
   */
-trait MockSparkTest { self: Suite =>
+trait MockSparkTest extends BeforeAndAfterAll { self: Suite =>
   val sc = MockSparkContext
+
+  override protected def afterAll(): Unit = {
+    sc.stop()
+  }
 }
